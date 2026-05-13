@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikuani Ecohotel | Conecta · Respira · Vive</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="main-header">
+        <nav>
+            <div class="logo">
+                <img src="logo-sikuani.png" alt="Sikuani Logo"> </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="#experiencias">Experiencias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn-reserva">Reservar Ahora</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Conecta · Respira · Vive</h1>
+            <div class="booking-bar fade-in-delayed">
+                <div class="input-group">
+                    <label>Llegada</label>
+                    <input type="date">
+                </div>
+                <div class="input-group">
+                    <label>Salida</label>
+                    <input type="date">
+                </div>
+                <div class="input-group">
+                    <label>Huéspedes</label>
+                    <select>
+                        <option>1 Adulto</option>
+                        <option selected>2 Adultos</option>
+                    </select>
+                </div>
+                <button class="btn-search">Buscar Disponibilidad</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="habitaciones" class="container">
+        <h2 class="section-title">Nuestras Habitaciones</h2>
+        <div class="rooms-grid">
+            <div class="room-card">
+                <div class="room-img" style="background-image: url('suite.jpg');"></div>
+                <h3>Suite Palafito</h3>
+                <p>Desde $300,000 / noche</p>
+                <button class="btn-simple">Ver Más</button>
+            </div>
+            <div class="room-card">
+                <div class="room-img" style="background-image: url('mirador.jpg');"></div>
+                <h3>Mirador del Río</h3>
+                <p>Desde $250,000 / noche</p>
+                <button class="btn-simple">Ver Más</button>
+            </div>
+            <div class="room-card">
+                <div class="room-img" style="background-image: url('cabana.jpg');"></div>
+                <h3>Cabaña Selva</h3>
+                <p>Desde $200,000 / noche</p>
+                <button class="btn-simple">Ver Más</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
