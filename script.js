@@ -1,23 +1,21 @@
-// --- 1. NAVBAR: estilo al hacer scroll ---
+// --- 1. COMPORTAMIENTO INTERACTIVO DEL NAVBAR ---
 const navbar = document.getElementById('navbar');
 
 if (navbar) {
-    const syncNavbar = () => {
+    window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    };
-    syncNavbar();
-    window.addEventListener('scroll', syncNavbar, { passive: true });
+    });
 }
 
-// --- 2. SECCIONES: revelado al entrar en pantalla ---
+// --- 2. EFECTO SCROLL REVEAL EN LAS SECCIONES ---
 const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -8% 0px',
-    threshold: 0.1
+    rootMargin: '0px',
+    threshold: 0.12
 };
 
 const revealSection = (entries, observer) => {
@@ -35,21 +33,7 @@ document.querySelectorAll('.oculto').forEach(section => {
     sectionObserver.observe(section);
 });
 
-// --- 3. TARJETAS: animación individual al scroll ---
-const cardObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-
-document.querySelectorAll('.anim-card').forEach(card => {
-    cardObserver.observe(card);
-});
-
-// --- 4. PÁGINA DE RESERVAS: preseleccionar habitación desde URL ---
+// --- 3. PÁGINA DE RESERVAS: preseleccionar habitación desde URL ---
 const roomSelector = document.getElementById('room-selector');
 if (roomSelector) {
     const params = new URLSearchParams(window.location.search);
@@ -64,7 +48,7 @@ if (roomSelector) {
     }
 }
 
-// --- 5. GALERÍA: lightbox ---
+// --- 4. GALERÍA: lightbox simple ---
 const lightbox = document.getElementById('gallery-lightbox');
 if (lightbox) {
     const lightboxImg = lightbox.querySelector('img');
