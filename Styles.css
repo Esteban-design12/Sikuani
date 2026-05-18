@@ -36,7 +36,7 @@ html { scroll-behavior: smooth; }
 
 /* --- MENÚ HEADER --- */
 nav {
-  position: fixed; top: 0; width: 100%;
+   top: 0; width: 100%;height: 100px;position: fixed;
   display: flex; justify-content: space-between; align-items: center;
   padding: 25px 60px; background: transparent; z-index: 999;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -343,7 +343,7 @@ footer {
 .about-item p { font-size: 0.85rem; color: #666; line-height: 1.5; font-weight: 400; }
 
 /* --- PÁGINA RESERVAR --- */
-.page-reservar { padding-top: 80px; }
+/*.page-reservar { padding-top: 80px; }*/
 .btn-reservar-active { pointer-events: none; opacity: 0.9; }
 .reservar-hero {
   min-height: 280px; padding: 120px 20px 60px;
