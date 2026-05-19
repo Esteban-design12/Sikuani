@@ -2,13 +2,15 @@
 const navbar = document.getElementById('navbar');
 
 if (navbar) {
-    window.addEventListener('scroll', () => {
+    const updateNavbar = () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+    };
+    updateNavbar();
+    window.addEventListener('scroll', updateNavbar, { passive: true });
 }
 
 // --- 2. EFECTO SCROLL REVEAL EN LAS SECCIONES ---
