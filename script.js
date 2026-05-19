@@ -39,8 +39,10 @@ if (roomSelector) {
     const params = new URLSearchParams(window.location.search);
     const habitacion = params.get('habitacion');
     const mapa = {
+        mirador: '300000',
+        campestre: '250000',
+        montana: '200000',
         palafito: '300000',
-        mirador: '250000',
         cabana: '200000'
     };
     if (mapa[habitacion]) {
