@@ -13,27 +13,33 @@ if (navbar) {
     window.addEventListener('scroll', updateNavbar, { passive: true });
 }
 
-// --- 2. EFECTO SCROLL REVEAL EN LAS SECCIONES ---
-const observerOptions = {
+// --- 2. EFECTO SCROLL REVEAL EN LAS SECCIONES (repite al entrar y salir del viewport) ---
+const revealObserverOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.12
+    rootMargin: '-10% 0px -12% 0px',
+    threshold: [0, 0.15, 0.35]
 };
 
-const revealSection = (entries, observer) => {
+const revealSection = (entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
+        const show = entry.intersectionRatio >= 0.15;
+        entry.target.classList.toggle('visible', show);
     });
 };
 
-const sectionObserver = new IntersectionObserver(revealSection, observerOptions);
+const sectionObserver = new IntersectionObserver(revealSection, revealObserverOptions);
 
-document.querySelectorAll('.oculto').forEach(section => {
-    sectionObserver.observe(section);
-});
+function initRevealAnimations() {
+    document.querySelectorAll('.oculto').forEach(section => {
+        sectionObserver.observe(section);
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRevealAnimations);
+} else {
+    initRevealAnimations();
+}
 
 // --- 3. PÁGINA DE RESERVAS: preseleccionar habitación desde URL ---
 const roomSelector = document.getElementById('room-selector');

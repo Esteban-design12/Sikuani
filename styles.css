@@ -27,9 +27,12 @@ html { scroll-behavior: smooth; }
 .oculto {
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: opacity 0.85s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.85s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: 0s;
+  will-change: opacity, transform;
 }
-.visible {
+.oculto.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -147,6 +150,14 @@ nav.scrolled .menu-links a {
   position: relative;
   z-index: 1;
 }
+.hero .slogan.oculto,
+.hero .hero-desc.oculto,
+.hero .btn-hero.oculto {
+  transform: translateY(40px);
+}
+.hero .slogan.oculto.visible { transition-delay: 0.1s; }
+.hero .hero-desc.oculto.visible { transition-delay: 0.28s; }
+.hero .btn-hero.oculto.visible { transition-delay: 0.46s; }
 .slogan {
   font-family: Tahoma, sans-serif;
   font-size: 4.5rem;
@@ -158,9 +169,17 @@ nav.scrolled .menu-links a {
 .btn-hero {
   background: transparent; color: white; border: 2px solid white;
   padding: 14px 35px; border-radius: 50px; font-weight: 600; font-size: 1rem;
-  cursor: pointer; transition: all 0.4s; backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: opacity 0.85s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.85s cubic-bezier(0.215, 0.61, 0.355, 1),
+    background 0.4s, color 0.4s, border-color 0.4s;
+  backdrop-filter: blur(5px);
 }
-.btn-hero:hover { background: white; color: var(--verde-oscuro); transform: scale(1.05); }
+.btn-hero.oculto.visible:hover {
+  background: white;
+  color: var(--verde-oscuro);
+  transform: translateY(0) scale(1.05);
+}
 .hero-curve {
   position: absolute;
   bottom: -2px;
@@ -461,17 +480,9 @@ footer {
   color: white;
   position: relative;
   z-index: 1;
-  animation: reservar-hero-in 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
 }
-@keyframes reservar-hero-in {
-  from {
-    opacity: 0;
-    transform: translateY(36px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.page-reservar .reservar-hero-content.oculto {
+  transform: translateY(40px);
 }
 .reservar-badge {
   display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
@@ -489,12 +500,11 @@ footer {
 .page-reservar .booking-container-page {
   padding-top: 50px;
 }
-.page-reservar .booking-summary.oculto.visible {
-  transition-delay: 0.05s;
-}
-.page-reservar .booking-container-page.oculto.visible {
-  transition-delay: 0.15s;
-}
+.page-reservar .booking-summary-inner.oculto.visible { transition-delay: 0.05s; }
+.page-reservar .booking-contact-card.oculto.visible { transition-delay: 0.12s; }
+.page-reservar .booking-intro.oculto.visible { transition-delay: 0.05s; }
+.page-reservar .booking-form.oculto.visible { transition-delay: 0.12s; }
+.page-reservar #contacto.oculto.visible { transition-delay: 0.08s; }
 .booking-page-grid {
   display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start;
 }
