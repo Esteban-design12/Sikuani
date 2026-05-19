@@ -66,7 +66,6 @@ nav.scrolled .logo-img {
 }
 
 .menu-links a {
-<<<<<<< HEAD
   margin: 0 20px;
   text-decoration: none;
   color: white;
@@ -85,7 +84,7 @@ nav.scrolled .menu-links a {
 .menu-links a:hover {
   color: var(--naranja-tierra);
 }
-=======
+
   margin: 0 20px; text-decoration: none; color: var(--verde-oscuro);
   font-weight: 500; font-size: 0.95rem; transition: color 0.3s;
   position: relative;
@@ -96,7 +95,7 @@ nav.scrolled .menu-links a {
 }
 .menu-links a:hover::after { width: 100%; }
 .menu-links a:hover { color: var(--naranja-tierra); }
->>>>>>> 8d05c70877bd4c8666847d4e16147d511b2021b0
+
 
 .btn-reservar {
   background: var(--naranja-tierra); color: white; border: none;
@@ -106,29 +105,29 @@ nav.scrolled .menu-links a {
 }
 .btn-reservar:hover { transform: translateY(-2px); background: #b56c22; color: white; }
 
-/* --- HERO SECTION --- */
+
 .hero {
   height: 100vh;
-<<<<<<< HEAD
+
   background: linear-gradient(rgba(45, 74, 34, 0.35), rgba(45, 74, 34, 0.55)), url('https://images.unsplash.com/photo-1710612198146-77512950a4b7?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000') center/cover;
-=======
+
   background: linear-gradient(rgba(45, 74, 34, 0.35), rgba(45, 74, 34, 0.55)), url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1920&q=80') center/cover;
->>>>>>> 8d05c70877bd4c8666847d4e16147d511b2021b0
+
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   position: relative; text-align: center; padding: 0 20px;
 }
 .slogan {
-<<<<<<< HEAD
+
   font-family: Tahoma, sans-serif;
   font-size: 4.5rem;
   color: white;
   font-weight: 300;
   text-shadow: 0 4px 15px rgba(0,0,0,0.25);
   margin-bottom: 30px;
-=======
+
   font-size: 4.5rem; color: white; font-weight: 300;
   text-shadow: 0 4px 15px rgba(0,0,0,0.25); margin-bottom: 30px;
->>>>>>> 8d05c70877bd4c8666847d4e16147d511b2021b0
+
 }
 .btn-hero {
   background: transparent; color: white; border: 2px solid white;
@@ -382,11 +381,11 @@ footer {
 .reservar-hero {
   min-height: 280px; padding: 120px 20px 60px;
   background: linear-gradient(rgba(45,74,34,0.5), rgba(45,74,34,0.7)),
-<<<<<<< HEAD
+
     url('https://images.unsplash.com/photo-1710612198146-77512950a4b7?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000') center/cover;
-=======
+
     url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1600&q=80') center/cover;
->>>>>>> 8d05c70877bd4c8666847d4e16147d511b2021b0
+
   display: flex; align-items: center; justify-content: center; text-align: center;
 }
 .reservar-hero-content { max-width: 640px; color: white; }
