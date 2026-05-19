@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar | Sikuani Ecohotel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body class="page-reservar">
+
+    <nav id="navbar" class="scrolled">
+        <a href="Index.html" class="logo-container">
+            <img src="logo-sikuani.png" alt="Sikuani Ecohotel" class="logo-img">
+        </a>
+        <div class="menu-links">
+            <a href="Index.html#inicio">Inicio</a>
+            <a href="Index.html#experiencias">Experiencias</a>
+            <a href="Index.html#habitaciones">Habitaciones</a>
+            <a href="Index.html#galeria">Galería</a>
+            <a href="Index.html#nosotros">Nosotros</a>
+        </div>
+        <a href="reservar.html" class="btn-reservar btn-reservar-active">Reservar Ahora &gt;</a>
+    </nav>
+
+    <header class="reservar-hero">
+        <div class="reservar-hero-content">
+            <span class="reservar-badge"><i class="fa-solid fa-leaf"></i> Reserva consciente</span>
+            <h1>Reserva tu experiencia en Sikuani</h1>
+            <p>Elige tus fechas, tu habitación ideal y prepárate para vivir una estadía de descanso, naturaleza y conexión con la esencia del territorio.</p>
+        </div>
+    </header>
+
+    <main class="reservar-main">
+        <div class="booking-page-grid">
+            <section class="booking-summary">
+                <h2><i class="fa-solid fa-spa"></i> Lo que incluye tu estadía</h2>
+                <ul class="booking-perks">
+                    <li><i class="fa-solid fa-check"></i> Desayuno con sabores locales de la región</li>
+                    <li><i class="fa-solid fa-check"></i> Caminata guiada al amanecer</li>
+                    <li><i class="fa-solid fa-check"></i> Ritual de bienvenida ancestral</li>
+                    <li><i class="fa-solid fa-check"></i> Wi‑Fi en zonas comunes</li>
+                    <li><i class="fa-solid fa-check"></i> Estacionamiento ecológico</li>
+                </ul>
+                <div class="booking-contact-card">
+                    <h3>¿Necesitas ayuda?</h3>
+                    <p><i class="fa-solid fa-phone"></i> +57 313 441 0963</p>
+                    <p><i class="fa-solid fa-envelope"></i> reservas@sikuaniecohotel.com</p>
+                    <p class="booking-note">Confirmación en menos de 24 horas hábiles.</p>
+                </div>
+            </section>
+
+            <section class="booking-container booking-container-page">
+                <h2 class="booking-title">Completa tu reserva</h2>
+                <p class="booking-subtitle">Selecciona fechas y huéspedes. Los precios están en COP por noche.</p>
+
+                <form class="booking-form" id="booking-form" onsubmit="event.preventDefault(); handleReserva(event);">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fa-regular fa-calendar"></i> Fecha de llegada</label>
+                            <input type="date" id="fecha-llegada" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fa-regular fa-calendar-check"></i> Fecha de salida</label>
+                            <input type="date" id="fecha-salida" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fa-solid fa-user"></i> Adultos</label>
+                            <select id="adultos">
+                                <option value="1">1 adulto</option>
+                                <option value="2" selected>2 adultos</option>
+                                <option value="3">3 adultos</option>
+                                <option value="4">4 adultos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fa-solid fa-child"></i> Niños</label>
+                            <select id="ninos">
+                                <option value="0" selected>0 niños</option>
+                                <option value="1">1 niño</option>
+                                <option value="2">2 niños</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-bed"></i> Tipo de habitación</label>
+                        <select id="room-selector">
+                            <option value="300000">Suite Palafito — $300.000 / noche</option>
+                            <option value="250000">Mirador del Río — $250.000 / noche</option>
+                            <option value="200000">Cabaña Selva — $200.000 / noche</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-user-pen"></i> Nombre completo</label>
+                        <input type="text" id="nombre-huesped" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                        <input type="email" id="email-huesped" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-brands fa-whatsapp"></i> Teléfono / WhatsApp</label>
+                        <input type="tel" id="telefono-huesped" placeholder="+57 300 000 0000" required>
+                    </div>
+
+                    <div class="booking-total" id="booking-total">
+                        <span>Total estimado</span>
+                        <strong id="total-precio">—</strong>
+                    </div>
+
+                    <button type="submit" class="btn-confirm-booking">Confirmar reserva</button>
+                    <a href="Index.html" class="btn-volver-inicio"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contacto">
+        <div>
+            <i class="fa-solid fa-phone"></i> +57 320 000 0000 &nbsp; | &nbsp;
+            <i class="fa-solid fa-envelope"></i> info@sikuaniecohotel.com
+        </div>
+        <div class="footer-social">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function calcularNoches(inicio, fin) {
+            const a = new Date(inicio);
+            const b = new Date(fin);
+            const diff = (b - a) / (1000 * 60 * 60 * 24);
+            return diff > 0 ? diff : 0;
+        }
+
+        function actualizarTotal() {
+            const llegada = document.getElementById('fecha-llegada').value;
+            const salida = document.getElementById('fecha-salida').value;
+            const precioNoche = parseInt(document.getElementById('room-selector').value, 10);
+            const totalEl = document.getElementById('total-precio');
+            const noches = calcularNoches(llegada, salida);
+
+            if (noches > 0) {
+                const total = noches * precioNoche;
+                totalEl.textContent = `${noches} noche${noches > 1 ? 's' : ''} · $${total.toLocaleString('es-CO')} COP`;
+            } else {
+                totalEl.textContent = 'Selecciona fechas válidas';
+            }
+        }
+
+        ['fecha-llegada', 'fecha-salida', 'room-selector'].forEach(id => {
+            document.getElementById(id)?.addEventListener('change', actualizarTotal);
+        });
+
+        const hoy = new Date().toISOString().split('T')[0];
+        document.getElementById('fecha-llegada').min = hoy;
+
+        function handleReserva(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre-huesped').value;
+            alert(`¡Gracias, ${nombre}! Tu solicitud de reserva fue recibida. Te contactaremos pronto para confirmar el pago.`);
+        }
+    </script>
+</body>
+</html>
